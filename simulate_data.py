@@ -15,23 +15,23 @@ def generate(RANDOM_SEED):
 
     stdev_scaler = 0
 
-    true_w3 = torch.randn(p1, k)
-    x1 = z @ true_w3.T + stdev_scaler * torch.randn(n, p1) # x: original input data (n, p)
+    true_w1 = torch.randn(p1, k)
+    x1 = z @ true_w1.T + stdev_scaler * torch.randn(n, p1) # x: original input data (n, p)
 
-    true_w4 = torch.randn(p2, k)
-    x2 = z @ true_w4.T + stdev_scaler * torch.randn(n, p2)
+    true_w2 = torch.randn(p2, k)
+    x2 = z @ true_w2.T + stdev_scaler * torch.randn(n, p2)
 
-    true_w5 = torch.randn(p3, k)
-    x3 = z @ true_w5.T + stdev_scaler * torch.randn(n, p3)
+    true_w3 = torch.randn(p3, k)
+    x3 = z @ true_w3.T + stdev_scaler * torch.randn(n, p3)
 
     # sparse version with diffferent cols set to 0
     z_sparse = z.clone()
     z_sparse[:500, 0] = 0
     z_sparse[500:, 1] = 0
 
-    x1_sparse = z_sparse @ true_w3.T + stdev_scaler * torch.randn(n, p1)
-    x2_sparse = z_sparse @ true_w4.T + stdev_scaler * torch.randn(n, p2)
-    x3_sparse = z_sparse @ true_w5.T + stdev_scaler * torch.randn(n, p3)
+    x1_sparse = z_sparse @ true_w1.T + stdev_scaler * torch.randn(n, p1)
+    x2_sparse = z_sparse @ true_w2.T + stdev_scaler * torch.randn(n, p2)
+    x3_sparse = z_sparse @ true_w3.T + stdev_scaler * torch.randn(n, p3)
 
 
     # implement train test split
@@ -48,5 +48,3 @@ def generate(RANDOM_SEED):
     z_sparse_train, z_sparse_test = z_sparse[train_indices], z_sparse[test_indices]
 
     return z, z_sparse, x1, x2, x3, x1_sparse, x2_sparse, x3_sparse, z_train, z_test, z_sparse_train, z_sparse_test, x1_train, x2_train, x3_train, x1_sparse_train, x2_sparse_train, x3_sparse_train, p1, p2, p3, x1_test, x2_test, x3_test, x1_sparse_test, x2_sparse_test, x3_sparse_test
-
-z, z_sparse, x1, x2, x3, x1_sparse, x2_sparse, x3_sparse, z_train, z_test, z_sparse_train, z_sparse_test, x1_train, x2_train, x3_train, x1_sparse_train, x2_sparse_train, x3_sparse_train, p1, p2, p3, x1_test, x2_test, x3_test, x1_sparse_test, x2_sparse_test, x3_sparse_test = generate(RANDOM_SEED)
