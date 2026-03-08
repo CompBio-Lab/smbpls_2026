@@ -54,7 +54,7 @@ def train_smbpls(
 
     Xte = {"rna": x1_sparse_test, "atac": x2_sparse_test, "prot": x3_sparse_test}
     yte = z_sparse_test
-        
+
 
     opt = torch.optim.Adam(model.parameters(), lr=lr)
 
@@ -74,7 +74,7 @@ def train_smbpls(
         loss = 0.5 * loss_pred + loss_cov
 
         loss.backward()
-        opt.step()        
+        opt.step()
 
         mse_values.append(float(loss_pred))  # store mse values at each step
         r2_values.append(float(r2_score_torch(y_hat, y).mean()))  # store r^2 correlation coefficient at each step
@@ -93,7 +93,7 @@ def train_smbpls(
     y_hat = soft_threshold(y_hat, model.lam_w) # enforce final soft thresholding on outputs
 
     # plot predicted vs. true values by output dimension
-    if show_plots: 
+    if show_plots:
       for i in range(y.shape[1]):
           plt.figure()
           plt.scatter(y_hat.detach()[:, i], y[:, i])
