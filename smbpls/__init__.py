@@ -20,4 +20,5 @@ from .train.train_smbpls import train_smbpls
 __all__ = [
     "SMBPLSNet",
     "generate",
+    "train_smbpls"
 ]
