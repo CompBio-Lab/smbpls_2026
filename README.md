@@ -1,16 +1,16 @@
-# SMBPLS: Sparse Multi-Block Partial Least Squares
+# SMBPLS
 
-A PyTorch implementation of Sparse Multi-Block Partial Least Squares (SMBPLS) for advanced statistical modeling and machine learning applications.
+**Sparse Multi-Block Partial Least Squares (sMBPLS)** for multi-omics data in MuData format.  
+This package allows you to integrate multiple modalities (e.g., RNA, ATAC, protein) and extract sparse latent components.
 
-## Overview
+---
 
-SMBPLS is a Python package that provides a modern, GPU-accelerated implementation of sparse multi-block partial least squares regression. This method is particularly useful for analyzing high-dimensional data with multiple blocks of variables, enabling both feature selection and dimensionality reduction through sparsity constraints.
+## Installation
 
-## Features
+Clone the repository and install in editable mode:
 
-- **SMBPLSNet**: Core PyTorch-based implementation of sparse multi-block PLS
-- **Synthetic Data Generation**: Built-in utilities to generate realistic synthetic datasets for experimentation
-- **GPU Support**: Full PyTorch integration for accelerated computation on GPUs
-- **Flexible Architecture**: Modular design supporting various experimental configurations
+```bash
+git clone (https://github.com/CompBio-Lab/smbpls_2026)
+cd smbpls_2026
+pip install -e .
 
-## Package Structure
