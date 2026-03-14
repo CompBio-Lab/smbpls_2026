@@ -6,6 +6,7 @@ import torch.nn.functional as F
 import pandas as pd
 from scvi.module.base import BaseModuleClass, LossOutput
 from .utils import soft_threshold
+import numpy as np
 
 
 class SMBPLSModule(BaseModuleClass):
