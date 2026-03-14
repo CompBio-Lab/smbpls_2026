@@ -7,6 +7,9 @@ import pandas as pd
 from scvi.module.base import BaseModuleClass, LossOutput
 from .utils import soft_threshold
 import numpy as np
+import anndata as ad
+import mudata as mu
+from sklearn.model_selection import train_test_split
 
 
 class SMBPLSModule(BaseModuleClass):
